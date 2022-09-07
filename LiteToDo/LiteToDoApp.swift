@@ -7,11 +7,21 @@
 
 import SwiftUI
 
+/*
+ using MVVM Architecture in this project
+ 
+ Model - data point
+ View - UI
+ ViewModel - manages Models for view
+ */
+
 @main
 struct LiteToDoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ListView()
+            }
         }
     }
 }
