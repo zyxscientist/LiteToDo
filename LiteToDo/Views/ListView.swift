@@ -17,6 +17,11 @@ struct ListView: View {
         List{
             ForEach(listViewModel.items) { item in
                 ListRowView(item: item)
+                    .onTapGesture {
+                        withAnimation(.linear) {
+                            listViewModel.updateItemCompletion(item: item)
+                        }
+                    }
             }
             .onDelete { indexSet in
                 listViewModel.deleteItem(index: indexSet)
@@ -31,7 +36,6 @@ struct ListView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink("Add") {
-                    // TODO: PAGE FOR ADDING NEW LIST ITEMS
                     ItemAddView()
                 }
             }

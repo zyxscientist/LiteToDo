@@ -10,16 +10,18 @@ import SwiftUI
 /*
  using MVVM Architecture in this project
  
- Model - data point
- View - UI
- ViewModel - manages Models for view
+ Model
+    数据模型
+ View
+    基础UI及简单的UI逻辑
+ ViewModel
+    链接视图与UI的桥梁
  */
 
 @main
 struct LiteToDoApp: App {
     
     @StateObject var listViewModel = ListViewModel()
-    
     
     var body: some Scene {
         WindowGroup {

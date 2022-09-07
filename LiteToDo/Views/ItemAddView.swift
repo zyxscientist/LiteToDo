@@ -19,6 +19,7 @@ struct ItemAddView: View {
     @State var showTextFieldAppropriateCheckAlert: Bool = false
     
     var body: some View {
+        
         ScrollView {
             
             // FIXME: SOME SAFEAREA ISSUE IN PORTRAIT MODE
@@ -48,12 +49,6 @@ struct ItemAddView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Add")
-        
-//      .alert(isPresented: $showTextFieldAppropriateCheckAlert) {
-//          showAlert()
-//      }
-        // 上面这种写法即将不再支持
-        
         .alert(Text(alertTitle), isPresented: $showTextFieldAppropriateCheckAlert) {
             // leave it default
         }
