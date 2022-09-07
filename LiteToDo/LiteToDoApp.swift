@@ -17,11 +17,17 @@ import SwiftUI
 
 @main
 struct LiteToDoApp: App {
+    
+    @StateObject var listViewModel = ListViewModel()
+    
+    
     var body: some Scene {
         WindowGroup {
             NavigationView{
                 ListView()
-            }
+            }.environmentObject(listViewModel)
+            // 将数据在首页创建的时候就挂在环境中
         }
     }
 }
+
