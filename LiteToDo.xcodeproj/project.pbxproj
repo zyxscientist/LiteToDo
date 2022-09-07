@@ -10,6 +10,7 @@
 		C2583F1528C82F25005AF16C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2583F1428C82F25005AF16C /* ListView.swift */; };
 		C2583F1728C8329E005AF16C /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2583F1628C8329E005AF16C /* ListRowView.swift */; };
 		C2583F1928C83777005AF16C /* ItemAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2583F1828C83777005AF16C /* ItemAddView.swift */; };
+		C2583F1C28C8400B005AF16C /* ItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2583F1B28C8400B005AF16C /* ItemModel.swift */; };
 		C278394428C78C6E000212C5 /* LiteToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C278394328C78C6E000212C5 /* LiteToDoApp.swift */; };
 		C278394828C78C6F000212C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C278394728C78C6F000212C5 /* Assets.xcassets */; };
 		C278394B28C78C6F000212C5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C278394A28C78C6F000212C5 /* Preview Assets.xcassets */; };
@@ -19,6 +20,7 @@
 		C2583F1428C82F25005AF16C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		C2583F1628C8329E005AF16C /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 		C2583F1828C83777005AF16C /* ItemAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddView.swift; sourceTree = "<group>"; };
+		C2583F1B28C8400B005AF16C /* ItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemModel.swift; sourceTree = "<group>"; };
 		C278394028C78C6E000212C5 /* LiteToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LiteToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C278394328C78C6E000212C5 /* LiteToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiteToDoApp.swift; sourceTree = "<group>"; };
 		C278394728C78C6F000212C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +48,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		C2583F1A28C83FEB005AF16C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C2583F1B28C8400B005AF16C /* ItemModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C278393728C78C6E000212C5 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				C278394328C78C6E000212C5 /* LiteToDoApp.swift */,
+				C2583F1A28C83FEB005AF16C /* Models */,
 				C2583F1328C82F06005AF16C /* Views */,
 				C278394728C78C6F000212C5 /* Assets.xcassets */,
 				C278394928C78C6F000212C5 /* Preview Content */,
@@ -151,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C2583F1C28C8400B005AF16C /* ItemModel.swift in Sources */,
 				C278394428C78C6E000212C5 /* LiteToDoApp.swift in Sources */,
 				C2583F1528C82F25005AF16C /* ListView.swift in Sources */,
 				C2583F1728C8329E005AF16C /* ListRowView.swift in Sources */,

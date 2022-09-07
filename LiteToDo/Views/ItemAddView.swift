@@ -13,6 +13,8 @@ struct ItemAddView: View {
     
     var body: some View {
         ScrollView {
+            
+            // FIXME: SOME SAFEAREA ISSUE IN PORTRAIT MODE
             VStack {
                 TextField("What ya gonna do", text: $textFieldText)
                     .padding()
