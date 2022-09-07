@@ -34,6 +34,7 @@ struct ItemAddView: View {
                     if textFieldAppropriateCheck() {
                         listViewModel.addItem(add: textFieldText)
                         presentationMode.wrappedValue.dismiss()
+                        print("New item has been saved")
                     }
                 } label: {
                     Text("Save")
