@@ -6,22 +6,39 @@
 //
 
 import Foundation
+import SwiftUI
+
+/*
+ CRUD FUNCTIONS - 对于数据最最常见的四种操作
+ 
+ Create
+ Read
+ Update
+ Delete
+ */
 
 class ListViewModel: ObservableObject {
     
-    @Published var items:[ItemModel] = []
+    @Published var items:[ItemModel] = [] {
+        didSet { // 观察者属性，每次对 items 实例进行修改时都调用一次储存
+            saveItem()
+        }
+    }
+    
+    var listItemKey: String = "listItemKey"
     
     init(){
         getItems()
     }
     
     func getItems(){
-        let newItems = [
-            ItemModel(title: "Item 1", isCompleted: false),
-            ItemModel(title: "Item 2", isCompleted: false),
-            ItemModel(title: "Item 3", isCompleted: true)
-        ]
-        items.append(contentsOf: newItems)
+        guard
+            let data = UserDefaults.standard.data(forKey: listItemKey),
+            let decodedData = try? JSONDecoder().decode([ItemModel].self, from: data) else {
+                return
+            }
+        
+        self.items = decodedData
     }
     
     func deleteItem(index: IndexSet){
@@ -39,13 +56,16 @@ class ListViewModel: ObservableObject {
     
     func updateItemCompletion(item: ItemModel) {
         if let index = items.firstIndex(where: { $0.id == item.id}) { // 找到id为这个项，并且把它的序号index给我
-            
-        // items[index] = ItemModel(title: item.title, isCompleted: !item.isCompleted)
-        // 上面这样写的意思是完全重新创建一个新的 ItemModel 这是不科学的
-        
         items[index] = item.upadteCompletion() // 数组中的这位[index]的内容更新为 item.upadteCompletion()
         // 而这样是传进来的值原地更新，id还是那个id，string还是那个string，但是完成状态反过来一下
-        
+        }
+    }
+    
+    func saveItem(){
+        // 思路是先将数据转码成JSON，再使用UserDefault存起来
+        if let encodedData = try? JSONEncoder().encode(items) {
+            UserDefaults.standard.set(encodedData, forKey: listItemKey)
+            print("item saved")
         }
     }
 }
