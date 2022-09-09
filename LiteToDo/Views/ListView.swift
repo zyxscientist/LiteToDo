@@ -20,6 +20,7 @@ struct ListView: View {
                     .onTapGesture {
                         withAnimation(.linear) {
                             listViewModel.updateItemCompletion(item: item)
+                            // 单击修改状态
                         }
                     }
             }
@@ -37,11 +38,11 @@ struct ListView: View {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink("Add") {
                     ItemAddView()
+                    // 添加代办事项
                 }
             }
             
             ToolbarItem(placement: .navigationBarLeading) {
-                // TODO: LIST EDIT FUNCTION
                 EditButton() // 高度集成
             }
         }
