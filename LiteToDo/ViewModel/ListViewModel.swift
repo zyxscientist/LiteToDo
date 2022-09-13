@@ -54,9 +54,12 @@ class ListViewModel: ObservableObject {
         items.insert(contentsOf: newItems, at: 0)
     }
     
+    // 点击更新完成状态函数
     func updateItemCompletion(item: ItemModel) {
-        if let index = items.firstIndex(where: { $0.id == item.id}) { // 找到id为这个项，并且把它的序号index给我
-        items[index] = item.upadteCompletion() // 数组中的这位[index]的内容更新为 item.upadteCompletion()
+        if let index = items.firstIndex(where: {$0.id == item.id}) {
+        // 找到id为这个项，并且把它的序号index给我
+        items[index] = item.upadteCompletion()
+        // 数组中的这位[index]的内容更新为 item.upadteCompletion()
         // 而这样是传进来的值原地更新，id还是那个id，string还是那个string，但是完成状态反过来一下
         }
     }

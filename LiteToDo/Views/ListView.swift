@@ -14,25 +14,31 @@ struct ListView: View {
     var body: some View {
         
         // List View
-        List{
-            ForEach(listViewModel.items) { item in
-                ListRowView(item: item)
-                    .onTapGesture {
-                        withAnimation(.linear) {
-                            listViewModel.updateItemCompletion(item: item)
-                            // 单击修改状态
-                        }
+        ZStack {
+            if listViewModel.items.isEmpty {
+                NoItemsView()
+            } else {
+            List{
+                ForEach(listViewModel.items) { item in
+                    ListRowView(item: item)
+                        .onTapGesture {
+                            withAnimation(.linear) {
+                                listViewModel.updateItemCompletion(item: item)
+                                // 单击修改状态
+                       }
                     }
-            }
-            .onDelete { indexSet in
-                listViewModel.deleteItem(index: indexSet)
-            }
-            .onMove { fromIndex, toIndex in
-                listViewModel.moveItem(fromIndex: fromIndex, toIndex: toIndex)
+                }
+                .onDelete { indexSet in
+                    listViewModel.deleteItem(index: indexSet)
+                }
+                .onMove { fromIndex, toIndex in
+                    listViewModel.moveItem(fromIndex: fromIndex, toIndex: toIndex)
+                    }
+                }
             }
         }
         .navigationTitle("Todo List")
-        
+
         // TOOLBAR
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
