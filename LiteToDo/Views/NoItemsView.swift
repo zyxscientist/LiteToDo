@@ -9,7 +9,8 @@ import SwiftUI
 
 struct NoItemsView: View {
     
-    @State var animationToggle: Bool = false
+    @State var placeholderAnimationToggle: Bool = false
+    @State var buttonAnimationToggle: Bool = false
     
     var body: some View {
         ScrollView {
@@ -29,20 +30,41 @@ struct NoItemsView: View {
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .frame(width: 180)
                         .padding(.vertical)
-                        .background(.blue)
+                        .background(buttonAnimationToggle ? Color.blue : Color.red)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 16.0, style: .continuous))
+                        .offset(y: buttonAnimationToggle ? -7 : 0)
                 }
             }
             .multilineTextAlignment(.center)
             .padding(.horizontal, 25)
-            .padding(.top, 100)
-            // TODO: 进场动画
-//            .onAppear(perform: )
+            .padding(.top, placeholderAnimationToggle ? 100 : 130)
+            .onAppear(perform: viewAnimate)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .opacity(placeholderAnimationToggle ? 1 : 0)
         }
         
-//        func
+    }
+    
+    func viewAnimate(){
+        guard !placeholderAnimationToggle, !buttonAnimationToggle else {return}
+        // 保证 animationToggle 为假，如果为真直接打断
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            
+            // 整体进场动画
+            withAnimation(.easeInOut) {
+                placeholderAnimationToggle.toggle()
+            }
+            
+            // 按钮变色动画
+            withAnimation(
+                Animation
+                    .easeInOut(duration: 2.0)
+                    .repeatForever()
+            ) {
+                buttonAnimationToggle.toggle()
+            }
+        }
     }
     
     struct NoItemsView_Previews: PreviewProvider {
