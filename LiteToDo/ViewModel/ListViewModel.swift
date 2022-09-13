@@ -34,6 +34,7 @@ class ListViewModel: ObservableObject {
         guard
             let data = UserDefaults.standard.data(forKey: listItemKey),
             let decodedData = try? JSONDecoder().decode([ItemModel].self, from: data) else {
+            // 思路：提取储存在 UserDefaults 中的 JSON 格式数据，然后进行解码再使用的过程
                 return
             }
         

@@ -12,6 +12,7 @@ struct ItemModel: Identifiable, Codable {
     var id: String = UUID().uuidString
     var title: String
     var isCompleted: Bool
+
     
     // 更新已有数据的功能需要在数据模型里面提供
     func upadteCompletion() -> ItemModel {
