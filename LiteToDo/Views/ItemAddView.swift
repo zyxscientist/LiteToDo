@@ -21,12 +21,11 @@ struct ItemAddView: View {
     var body: some View {
         
         ScrollView {
-            
-            // FIXME: SOME SAFEAREA ISSUE IN PORTRAIT MODE
             VStack {
                 TextField("What ya gonna do", text: $textFieldText)
                     .padding()
-                    .frame(width:UIScreen.main.bounds.size.width - 30, height: 55)
+                    .frame(height: 55)
+                    .frame(maxWidth: .infinity)
                     .background(.gray.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                 
@@ -41,13 +40,15 @@ struct ItemAddView: View {
                         .font(.system(.body, design: .rounded))
                         .fontWeight(.semibold)
                         .padding()
-                        .frame(width:UIScreen.main.bounds.size.width - 30, height: 55)
+                        .frame(height: 55)
+                        .frame(maxWidth: .infinity)
                         .foregroundColor(.white)
                         .background(Color.blue)
                         .clipShape(RoundedRectangle(cornerRadius: 10.0, style: .continuous))
                 }
             }
         }
+        .padding(.horizontal, 15)
         .navigationBarTitleDisplayMode(.inline)
         .navigationTitle("Add")
         .alert(Text(alertTitle), isPresented: $showTextFieldAppropriateCheckAlert) {
@@ -71,6 +72,7 @@ struct ItemAddView_Previews: PreviewProvider {
         NavigationView{
             ItemAddView()
         }
+        .navigationViewStyle(StackNavigationViewStyle())
         .environmentObject(ListViewModel())
         // MARK: 预览无法获得整个App级别的环境数据，所以这里要手动挂上
         .previewInterfaceOrientation(.portrait)

@@ -27,7 +27,9 @@ struct LiteToDoApp: App {
         WindowGroup {
             NavigationView{
                 ListView()
-            }.environmentObject(listViewModel)
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environmentObject(listViewModel)
             // 将数据在首页创建的时候就挂在环境中
         }
     }

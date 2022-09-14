@@ -20,6 +20,7 @@ struct NoItemsView: View {
                     .font(.system(size: 36, design: .rounded))
                 
                 Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.")
+                    .frame(maxWidth: 600)
                     .foregroundColor(.gray)
                     .font(.system(size: 20, design: .rounded))
                 
