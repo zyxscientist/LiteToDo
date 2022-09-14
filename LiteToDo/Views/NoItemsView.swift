@@ -33,7 +33,7 @@ struct NoItemsView: View {
                         .background(buttonAnimationToggle ? Color.blue : Color.red)
                         .foregroundColor(.white)
                         .clipShape(RoundedRectangle(cornerRadius: 16.0, style: .continuous))
-                        .offset(y: buttonAnimationToggle ? -7 : 0)
+                        .offset(y: buttonAnimationToggle ? -7 : 7)
                 }
             }
             .multilineTextAlignment(.center)
